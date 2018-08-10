@@ -7,24 +7,29 @@ describe("Phrase", function() {
 
     it("should return false for a non-palindrome", function() {
       let nonPalindrome = new Phrase("apple");
-      assert(!nonPalindrome.palindrome());
+      assert(nonPalindrome.palindrome() == false);
     });
 
 
     it("should return true for a plain palindrome", function() {
       let plainPalindrome = new Phrase("racecar");
-      assert(plainPalindrome.palindrome());
+      assert(plainPalindrome.palindrome() == true);
     });
 
     it("should return true for a mixed-case palindrome", function() {
       let mixedCase = new Phrase("RaceCar");
-      assert(mixedCase.palindrome());
+      assert(mixedCase.palindrome() == true);
     });
 
     it("should return true for a palindrome with punctuation", function() {
       let punctuatedPalindrome = new Phrase("Madam, I'm Adam.");
-      assert(punctuatedPalindrome.palindrome());
+      assert(punctuatedPalindrome.palindrome() == true);
     });
+
+    it("should return false for an empty string", function() {
+      let emptyPhrase = new Phrase("");
+      assert(emptyPhrase.palindrome() == false);
+    })
   });
 
   describe("#letters", function() {
